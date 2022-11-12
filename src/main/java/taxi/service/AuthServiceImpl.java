@@ -14,9 +14,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Driver login(String login, String password) throws WrongDataFromClientException {
         Optional<Driver> driver = driverService.findByLogin(login);
-        if (driver.isEmpty()) {
-            throw new WrongDataFromClientException("username or password incorrect");
-        }
+        //todo fix this shit
+//        if (driver.isEmpty()) {
+//            throw new WrongDataFromClientException("username or password incorrect");
+//        }
         if (!driver.get().getPassword().equals(password)) {
             throw new WrongDataFromClientException("username or password incorrect");
         }
