@@ -22,19 +22,14 @@ public class AddDriverController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        String login = req.getParameter("license_number");
-        if (req.getParameter("pasword").equals(req.getParameter("repeatPassword"))) {
-            String password = req.getParameter("license_number");
-        } else {
-            req.setAttribute("errorMessage", "both passwords should be the same");
-            req.getRequestDispatcher("/WEB-INF/views/drivers/index.jsp").forward(req, resp);
-        }
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         Driver driver = new Driver(name, licenseNumber);
-        driver.setLogin(req.getParameter("regLogin"));
-        driver.setPassword(req.getParameter("regPassword"));
+        driver.setLogin(login);
+        driver.setPassword(password);
         driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/index");
     }

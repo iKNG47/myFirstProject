@@ -23,6 +23,8 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -31,6 +33,14 @@
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
+        </td>
+        <td>
+            <input type="email" name="login" form="driver" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Must contain at least one  number
+                    and one uppercase and lowercase letter, and at least 8 or more characters">
         </td>
         <td>
             <input type="submit" name="add" form="driver">
